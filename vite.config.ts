@@ -19,23 +19,23 @@ export default defineConfig({
     display: 'standalone',
     orientation: 'portrait',
     start_url: '/vue-login-app/', // 使用絕對路徑但包含 base
-    icons: [
-      {
-        src: 'pwa-192x192.png',
-        sizes: '192x192',
-        type: 'image/png'
-      },
-      {
-        src: 'pwa-512x512.png',
-        sizes: '512x512',
-        type: 'image/png'
-      },
-      {
-        src: 'pwa-512x512.png',
-        sizes: '512x512',
-        type: 'image/png',
-        purpose: 'any maskable'
-      }
+   icons: [
+    {
+      src: '/vue-login-app/pwa-192x192.png', // 使用絕對路徑包含 base
+      sizes: '192x192',
+      type: 'image/png'
+    },
+    {
+      src: '/vue-login-app/pwa-512x512.png', // 使用絕對路徑包含 base
+      sizes: '512x512',
+      type: 'image/png'
+    },
+    {
+      src: '/vue-login-app/pwa-512x512.png', // 使用絕對路徑包含 base
+      sizes: '512x512',
+      type: 'image/png',
+      purpose: 'any maskable'
+    }
     ]
   },
       workbox: {

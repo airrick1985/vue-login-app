@@ -8,36 +8,36 @@ export default defineConfig({
   plugins: [
     vue(),
     VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'maskable-icon.svg'],
-      manifest: {
-        name: '用戶登入系統',
-        short_name: '登入系統',
-        description: '企業用戶登入系統',
-        theme_color: '#ffffff',
-        background_color: '#ffffff',
-        display: 'standalone',
-        orientation: 'portrait',
-        start_url: './index.html', // 修改為相對路徑
-        icons: [
-          {
-            src: './pwa-192x192.png', // 添加相對路徑
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: './pwa-512x512.png', // 添加相對路徑
-            sizes: '512x512',
-            type: 'image/png'
-          },
-          {
-            src: './pwa-512x512.png', // 添加相對路徑
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable'
-          }
-        ]
+  registerType: 'autoUpdate',
+  includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'maskable-icon.svg'],
+  manifest: {
+    name: '用戶登入系統',
+    short_name: '登入系統',
+    description: '企業用戶登入系統',
+    theme_color: '#ffffff',
+    background_color: '#ffffff',
+    display: 'standalone',
+    orientation: 'portrait',
+    start_url: '/vue-login-app/', // 使用絕對路徑但包含 base
+    icons: [
+      {
+        src: 'pwa-192x192.png',
+        sizes: '192x192',
+        type: 'image/png'
       },
+      {
+        src: 'pwa-512x512.png',
+        sizes: '512x512',
+        type: 'image/png'
+      },
+      {
+        src: 'pwa-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any maskable'
+      }
+    ]
+  },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif}'], // 添加全局匹配模式
         navigateFallback: null, // 禁用導航後備

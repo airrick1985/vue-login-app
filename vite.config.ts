@@ -18,20 +18,20 @@ export default defineConfig({
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/',
+        start_url: './index.html', // 修改為相對路徑
         icons: [
           {
-            src: 'pwa-192x192.png',
+            src: './pwa-192x192.png', // 添加相對路徑
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: 'pwa-512x512.png',
+            src: './pwa-512x512.png', // 添加相對路徑
             sizes: '512x512',
             type: 'image/png'
           },
           {
-            src: 'pwa-512x512.png',
+            src: './pwa-512x512.png', // 添加相對路徑
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable'
@@ -39,6 +39,8 @@ export default defineConfig({
         ]
       },
       workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif}'], // 添加全局匹配模式
+        navigateFallback: null, // 禁用導航後備
         runtimeCaching: [
           {
             urlPattern: ({ url }) => {

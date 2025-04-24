@@ -1,25 +1,22 @@
 name: Deploy to GitHub Pages
-
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'  # 更新到 Node.js 18
           cache: 'npm'
           
       - name: Install dependencies
-        run: npm ci
+        run: npm install  # 使用 npm install 而不是 npm ci
         
       - name: Build PWA
         run: npm run build
@@ -28,6 +25,9 @@ jobs:
         run: |
           cp dist/index.html dist/404.html
           touch dist/.nojekyll
+          ls -la dist/  # 列出構建目錄中的文件
+          echo "檢查圖標文件是否存在"
+          ls -la dist/*.ico dist/*.png 2>/dev/null || echo "未找到圖標文件"
           
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
